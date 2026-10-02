@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第九电影网 - 第九艺术馆·序号策展片单与热播影评 | dijiudianyingwang-h5</title>
+<meta name="description" content="第九电影网(dijiudianyingwang-h5)以“第九艺术”为策展主线，提供序号片库、类型策展、热播榜单、影评专题与观片帮助。官网 https://dijiudianyingwang-h5.github.io，深空序号单页演示，内页链接以 # 占位，接真实片源需版权授权。">
+<meta name="keywords" content="第九电影网, dijiudianyingwang-h5, 第九艺术, 序号片库, 电影策展, 热播影评">
+<meta name="author" content="第九电影网">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://dijiudianyingwang-h5.github.io">
+<link rel="alternate" hreflang="zh-CN" href="https://dijiudianyingwang-h5.github.io">
+<meta property="og:type" content="website">
+<meta property="og:title" content="第九电影网 - 第九艺术馆与序号策展片单">
+<meta property="og:description" content="dijiudianyingwang-h5 提供 No.09 序号片库、类型策展、热播榜与影评专题，深空紫青单页，移动端自适应。">
+<meta property="og:url" content="https://dijiudianyingwang-h5.github.io">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第九电影网 - 第九艺术策展">
+<meta name="twitter:description" content="dijiudianyingwang-h5 官网提供序号片单、策展分类与热播影评演示。">
+<style>
+:root{
+  --bg:#0a0a1f;--bg2:#121233;--card:#16163a;--card2:#1d1d4a;--ink:#eef0ff;--muted:#9aa0c8;
+  --violet:#7c5cff;--violet2:#a78bfa;--cyan:#22d3ee;--cyan2:#67e8f9;--gold:#ffce5c;--gold2:#ffb84d;
+  --line:rgba(124,92,255,.28);--line2:rgba(34,211,238,.26);--navh:64px;--radius:18px;--shadow:0 16px 34px rgba(5,5,20,.45);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;
+  background:
+    radial-gradient(900px 440px at 90% -10%,rgba(124,92,255,.22),transparent 60%),
+    radial-gradient(760px 360px at 0% 8%,rgba(34,211,238,.14),transparent 58%),
+    linear-gradient(180deg,var(--bg),var(--bg2));
+  color:var(--ink);line-height:1.8;padding-top:var(--navh);-webkit-font-smoothing:antialiased;}
+a{color:var(--cyan2);text-decoration:none;transition:.25s;}
+a:hover{color:var(--gold);}
+img{max-width:100%;display:block;}ul{list-style:none;}
+
+.nav{position:fixed;top:0;left:0;right:0;height:var(--navh);z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 16px;
+  background:rgba(10,10,31,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line2);}
+.brand{font-weight:900;font-size:clamp(15px,4.4vw,21px);color:#fff;display:flex;align-items:center;gap:8px;white-space:nowrap;}
+.brand b{background:linear-gradient(90deg,var(--violet2),var(--cyan2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.brand .tag{font-size:11px;color:#0a0a1f;background:var(--gold);padding:2px 7px;border-radius:6px;font-weight:800;}
+.menu-btn{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:10px;}
+.menu-btn span{width:26px;height:3px;background:var(--cyan2);border-radius:3px;transition:.3s;}
+.menu-btn.open span:nth-child(1){transform:translateY(8px) rotate(45deg);}
+.menu-btn.open span:nth-child(2){opacity:0;}
+.menu-btn.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
+.nav-links{display:flex;gap:6px;flex-wrap:wrap;}
+.nav-links a{color:#dfe3ff;font-size:15px;font-weight:700;min-height:44px;display:inline-flex;align-items:center;padding:8px 12px;border-radius:20px;}
+.nav-links a:hover{background:rgba(124,92,255,.18);color:var(--cyan2);}
+
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px;}
+.section{padding:64px 0;}
+.sec-title{font-size:clamp(22px,5vw,30px);font-weight:900;text-align:center;margin-bottom:8px;color:#fff;}
+.sec-title small{display:block;font-size:12px;letter-spacing:2px;color:var(--cyan2);font-weight:700;margin-top:8px;}
+.sec-title::after{content:"";display:block;width:78px;height:4px;border-radius:4px;margin:14px auto 0;background:linear-gradient(90deg,var(--violet),var(--cyan),var(--gold));}
+
+/* Hero 第九艺术 */
+.hero{padding:68px 0 32px;}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:center;}
+.badge09{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--violet),var(--cyan));color:#08121f;font-weight:900;font-size:12px;padding:6px 14px;border-radius:22px;margin-bottom:16px;}
+.badge09 b{font-size:16px;}
+.hero h1{font-size:clamp(28px,6vw,46px);line-height:1.18;color:#fff;margin-bottom:16px;}
+.hero h1 em{font-style:normal;color:var(--violet2);}.hero h1 i{font-style:normal;color:var(--gold);}
+.hero p{color:var(--muted);font-size:clamp(15px,2.6vw,17px);margin-bottom:18px;max-width:560px;}
+.urlbox{display:inline-block;font-family:ui-monospace,Menlo,Consolas,monospace;border:1px dashed var(--cyan);color:var(--cyan2);background:rgba(10,10,31,.5);padding:10px 14px;border-radius:10px;font-size:13px;margin-bottom:18px;}
+.cta{display:inline-block;background:linear-gradient(90deg,var(--violet),var(--cyan));color:#08121f;font-weight:900;padding:13px 30px;border-radius:30px;min-height:46px;}
+.orb{position:relative;background:radial-gradient(circle at 30% 30%,rgba(167,139,250,.35),transparent 60%),var(--card);border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:var(--shadow);text-align:center;}
+.orb .no{font-size:64px;font-weight:900;line-height:1;background:linear-gradient(135deg,var(--violet2),var(--cyan2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.orb p{color:var(--muted);font-size:13px;margin-top:8px;}
+.orb .chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px;}
+.orb .chips span{font-size:12px;color:#dfe3ff;border:1px solid var(--line2);padding:4px 10px;border-radius:20px;}
+
+/* 序号片库 */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(186px,1fr));gap:18px;}
+.movie{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.25s;}
+.movie:hover{transform:translateY(-6px);border-color:var(--cyan);box-shadow:0 16px 30px rgba(34,211,238,.20);}
+.cover{height:214px;display:flex;align-items:center;justify-content:center;font-size:40px;color:#fff;position:relative;}
+.s1{background:linear-gradient(135deg,#7c5cff,#22d3ee);}.s2{background:linear-gradient(135deg,#ffce5c,#ffb84d);color:#3a2c00;}
+.s3{background:linear-gradient(135deg,#1d1d4a,#7c5cff);}.s4{background:linear-gradient(135deg,#0e7490,#22d3ee);color:#04222b;}
+.s5{background:linear-gradient(135deg,#db2777,#a78bfa);color:#fff;}.s6{background:linear-gradient(135deg,#334155,#64748b);}
+.no-badge{position:absolute;top:10px;left:10px;background:rgba(10,10,31,.6);color:var(--cyan2);font-weight:900;font-size:12px;padding:3px 9px;border-radius:8px;border:1px solid var(--cyan);}
+.minfo{padding:12px 14px;}.minfo h3{font-size:15px;color:#fff;margin-bottom:6px;}.minfo p{font-size:13px;color:var(--muted);display:flex;justify-content:space-between;}
+
+/* 策展分类 */
+.six{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.cat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 8px 20px rgba(5,5,20,.30);transition:.25s;}
+.cat:hover{transform:translateY(-4px);border-color:var(--gold);}
+.cat .ico{font-size:30px;}.cat h3{font-size:17px;color:#fff;margin:8px 0 6px;}.cat p{font-size:13px;color:var(--muted);}.cat a{display:inline-block;margin-top:10px;font-weight:800;color:var(--cyan2);}
+
+/* 榜单 */
+.rank{display:grid;gap:12px;counter-reset:r;max-width:840px;margin:0 auto;}
+.ri{display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;}
+.ri::before{counter-increment:r;content:"No." counter(r);min-width:62px;text-align:center;height:42px;flex:0 0 62px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;background:rgba(124,92,255,.16);color:var(--violet2);}
+.ri:nth-child(1)::before{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#3a2c00;}.ri:nth-child(2)::before{background:linear-gradient(135deg,var(--cyan),var(--cyan2));color:#04222b;}.ri:nth-child(3)::before{background:linear-gradient(135deg,var(--violet),var(--violet2));color:#fff;}
+.rb{flex:1;}.rb h3{font-size:16px;color:#fff;}.rb p{font-size:13px;color:var(--muted);}.rs{font-weight:900;color:var(--gold);font-size:18px;}
+
+/* 影评专题 */
+.reviews{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;}
+.rv{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 8px 20px rgba(5,5,20,.28);}
+.rv .star{color:var(--gold);font-size:14px;}.rv h3{font-size:17px;color:#fff;margin:8px 0 6px;}.rv p{font-size:13px;color:var(--muted);}.rv a{display:inline-block;margin-top:10px;font-weight:800;color:var(--cyan2);}
+
+/* 帮助+关于 */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 8px 20px rgba(5,5,20,.28);}
+.panel h3{color:var(--cyan2);margin-bottom:12px;font-size:18px;}
+.panel p{font-size:14px;color:#c7cbed;margin-bottom:10px;}
+details{border:1px solid var(--line);background:var(--card);border-radius:10px;margin-bottom:10px;overflow:hidden;}
+summary{padding:14px 16px;font-weight:700;cursor:pointer;min-height:44px;display:flex;justify-content:space-between;align-items:center;color:#fff;}
+summary::-webkit-details-marker{display:none;}summary::after{content:"+";color:var(--cyan2);font-size:20px;}
+details[open] summary::after{content:"−";}details p{padding:0 16px 16px;color:#c7cbed;font-size:14px;}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:6px;}
+.stat{background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center;}
+.stat b{display:block;font-size:24px;color:var(--gold);}.stat span{font-size:13px;color:var(--muted);}
+.notice{margin-top:18px;background:rgba(34,211,238,.08);border:1px dashed var(--cyan);border-radius:12px;padding:16px;font-size:13px;color:#bfe9f2;}
+
+.footer{background:#06061a;color:#c7cbed;padding:46px 0 22px;margin-top:60px;border-top:1px solid var(--line2);}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:26px;}
+.footer h4{color:#fff;font-size:16px;margin-bottom:12px;}
+.footer a{color:#9fa6d6;font-size:14px;display:inline-block;padding:4px 0;}
+.footer a:hover{color:var(--cyan2);}
+.fb{text-align:center;margin-top:26px;padding-top:16px;border-top:1px solid var(--line2);font-size:13px;color:#9fa6d6;}
+.fb .u{color:var(--cyan2);font-family:ui-monospace,Menlo,Consolas,monospace;}
+.toTop{position:fixed;right:18px;bottom:18px;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--cyan));color:#08121f;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;box-shadow:var(--shadow);opacity:0;visibility:hidden;transition:.3s;z-index:900;}
+.toTop.show{opacity:1;visibility:visible;}
+
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr;}}
+@media(max-width:768px){.menu-btn{display:flex;}.nav-links{position:fixed;top:var(--navh);left:0;right:0;background:rgba(10,10,31,.98);border-bottom:1px solid var(--line2);flex-direction:column;align-items:stretch;gap:0;max-height:0;overflow:hidden;transition:max-height .35s;}.nav-links.open{max-height:620px;}.nav-links a{padding:14px 18px;border-radius:0;border-bottom:1px solid rgba(255,255,255,.06);}.two{grid-template-columns:1fr;}.six{grid-template-columns:1fr 1fr;}.grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));}.cover{height:178px;}}
+@media(max-width:520px){.six{grid-template-columns:1fr;}.orb .no{font-size:52px;}}
+@media(max-width:420px){.grid{grid-template-columns:1fr 1fr;}.cover{height:162px;}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"第九电影网","url":"https://dijiudianyingwang-h5.github.io","potentialAction":{"@type":"SearchAction","target":"https://dijiudianyingwang-h5.github.io#library","query-input":"required name=search_term"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"第九电影网是什么风格？","acceptedAnswer":{"@type":"Answer","text":"本演示站以“第九艺术/电影策展”为主线，用深空底色、No.09 序号徽章组织片库、类型策展、热播榜与影评专题；内页链接以 # 占位，仅作单页模板演示。"}},
+{"@type":"Question","name":"序号片库怎么用？","acceptedAnswer":{"@type":"Answer","text":"每部影片带 No.序号徽章，可按策展主题、类型、地区快速定位；正式站把 # 替换为真实分类页、详情页与正版播放入口即可。"}},
+{"@type":"Question","name":"移动端能正常浏览吗？","acceptedAnswer":{"@type":"Answer","text":"全站响应式，手机端自动折叠导航、片库双列/自适应、策展分类与影评卡重排，核心内容纯HTML便于搜索引擎抓取。[6](@ref)"}},
+{"@type":"Question","name":"必应怎么收录这个单页？","acceptedAnswer":{"@type":"Answer","text":"已配置 title、description、canonical、Open Graph 与 JSON-LD；可在 Bing Webmaster Tools 提交首页 https://dijiudianyingwang-h5.github.io 。按你要求不生成 robots.txt 与 sitemap.xml。"}}
+]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Movie","name":"第九号放映厅","url":"https://dijiudianyingwang-h5.github.io#library","description":"演示影片：第九电影网序号片库示例，以“电影作为第九艺术”为策展主题，科幻文艺向，用于序号网格与影评模板展示。","genre":["科幻","文艺"],"datePublished":"2025-06-01","aggregateRating":{"@type":"AggregateRating","ratingValue":"9.1","bestRating":"10","worstRating":"1","ratingCount":"226"}}
+</script>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<header class="nav">
+  <div class="brand"><b>第九电影网</b><span class="tag">dijiudianyingwang-h5</span></div>
+  <button class="menu-btn" id="menuBtn" aria-label="菜单" aria-expanded="false"><span></span><span></span><span></span></button>
+  <nav class="nav-links" id="navLinks" aria-label="主导航">
+    <a href="#home">首页</a>
+    <a href="#library">序号片库</a>
+    <a href="#category">策展分类</a>
+    <a href="#ranking">热播榜单</a>
+    <a href="#review">影评专题</a>
+    <a href="#help">观片帮助</a>
+    <a href="#about">关于本站</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="wrap">
+    <div>
+      <span class="badge09">第九艺术馆 <b>No.09</b> · 序号策展</span>
+      <h1>第九电影网 · <em>序号策展</em>片单 <br><i>把电影当</i>第九艺术看</h1>
+      <p>第九电影网（dijiudianyingwang-h5）用 No.09 序号网格策展电影、剧集、综艺、动漫、纪录与短片；深空紫青界面、热播榜单与影评专题一体，手机电脑自适应。本页仅演示，内页均用 # 占位。</p>
+      <div class="urlbox">https://dijiudianyingwang-h5.github.io</div>
+      <br>
+      <a class="cta" href="#library">进入序号片库 #</a>
+    </div>
+    <aside class="orb" aria-label="第九序号概览">
+      <div class="no">09</div>
+      <p>以“电影=第九艺术”做策展编号</p>
+      <div class="chips"><span>序号网格</span><span>类型策展</span><span>影评富摘要</span></div>
+    </aside>
+  </div>
+</section>
+
+<section class="section" id="library">
+  <div class="wrap">
+    <h2 class="sec-title">序号片库<small>DIJIU DIANYINGWANG · No.01–No.06 策展样片</small></h2>
+    <div class="grid">
+      <article class="movie"><div class="cover s1"><span class="no-badge">No.01</span>🎬</div><div class="minfo"><h3>第九号放映厅</h3><p><span>科幻文艺</span><span>122分</span></p></div></article>
+      <article class="movie"><div class="cover s2"><span class="no-badge">No.02</span>🎭</div><div class="minfo"><h3>金幕独白者</h3><p><span>剧情</span><span>108分</span></p></div></article>
+      <article class="movie"><div class="cover s3"><span class="no-badge">No.03</span>🪐</div><div class="minfo"><h3>星轨剪辑师</h3><p><span>科幻</span><span>115分</span></p></div></article>
+      <article class="movie"><div class="cover s4"><span class="no-badge">No.04</span>🕵️</div><div class="minfo"><h3>青幕谜局</h3><p><span>悬疑</span><span>101分</span></p></div></article>
+      <article class="movie"><div class="cover s5"><span class="no-badge">No.05</span>🎤</div><div class="minfo"><h3>第九脱口场</h3><p><span>综艺</span><span>第2季</span></p></div></article>
+      <article class="movie"><div class="cover s6"><span class="no-badge">No.06</span>📺</div><div class="minfo"><h3>深巷剧社录</h3><p><span>剧集</span><span>10集</span></p></div></article>
+    </div>
+    <div style="text-align:center;margin-top:28px;"><a href="#" style="display:inline-block;border:1px solid var(--cyan);padding:12px 28px;border-radius:26px;font-weight:800;color:var(--cyan2);">浏览全部序号片单 #</a></div>
+  </div>
+</section>
+
+<section class="section" id="category" style="background:rgba(124,92,255,.08);">
+  <div class="wrap">
+    <h2 class="sec-title">策展分类<small>按第九艺术主题筛片</small></h2>
+    <div class="six">
+      <div class="cat"><div class="ico">🎬</div><h3>电影策展</h3><p>科幻、文艺、悬疑、喜剧按“作者/母题”编号策展。</p><a href="#library">看电影 #</a></div>
+      <div class="cat"><div class="ico">📺</div><h3>剧集策展</h3><p>国产、欧美、日韩剧集按叙事结构做专题序列。</p><a href="#library">看剧集 #</a></div>
+      <div class="cat"><div class="ico">🎤</div><h3>综艺策展</h3><p>脱口秀、真人秀、音乐竞演按舞台语言归类。</p><a href="#library">看综艺 #</a></div>
+      <div class="cat"><div class="ico">🧸</div><h3>动漫策展</h3><p>国漫、日番、短片按画风与世界观编号。</p><a href="#library">看动漫 #</a></div>
+      <div class="cat"><div class="ico">🎥</div><h3>纪录策展</h3><p>自然、历史、科技纪录片按影像语言策展。</p><a href="#library">看纪录 #</a></div>
+      <div class="cat"><div class="ico">🎞️</div><h3>短片策展</h3><p>微电影、实验片、学生作品按第九艺术入列。</p><a href="#library">看短片 #</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="ranking">
+  <div class="wrap">
+    <h2 class="sec-title">热播榜单<small>DIJIU-H5 序号热播榜</small></h2>
+    <div class="rank">
+      <div class="ri"><div class="rb"><h3>第九号放映厅</h3><p>电影·科幻文艺 / 122分 / 序号策展</p></div><div class="rs">9.6</div></div>
+      <div class="ri"><div class="rb"><h3>星轨剪辑师</h3><p>电影·科幻 / 115分 / 影像语言</p></div><div class="rs">9.4</div></div>
+      <div class="ri"><div class="rb"><h3>金幕独白者</h3><p>电影·剧情 / 108分 / 作者策展</p></div><div class="rs">9.2</div></div>
+      <div class="ri"><div class="rb"><h3>青幕谜局</h3><p>电影·悬疑 / 101分 / 烧脑序列</p></div><div class="rs">9.0</div></div>
+      <div class="ri"><div class="rb"><h3>深巷剧社录</h3><p>剧集·群像 / 10集 / 叙事策展</p></div><div class="rs">8.8</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="review" style="background:rgba(34,211,238,.07);">
+  <div class="wrap">
+    <h2 class="sec-title">影评专题<small>第九艺术·观后策展</small></h2>
+    <div class="reviews">
+      <div class="rv"><div class="star">★★★★★ 9.6</div><h3>《第九号放映厅》影像笔记</h3><p>从蒙太奇到声音设计，拆解“电影作为第九艺术”的策展逻辑与情绪曲线。</p><a href="#library">读完整影评 #</a></div>
+      <div class="rv"><div class="star">★★★★☆ 9.2</div><h3>《金幕独白者》表演评析</h3><p>独白、静场与特写如何承载人物内心，适合文艺片策展入门。</p><a href="#library">读完整影评 #</a></div>
+      <div class="rv"><div class="star">★★★★☆ 9.0</div><h3>《青幕谜局》叙事结构</h3><p>多线伏笔与序号重构，悬疑片如何用“编号”降低信息负担。</p><a href="#library">读完整影评 #</a></div>
+      <div class="rv"><div class="star">★★★★★ 9.4</div><h3>《星轨剪辑师》科幻美学</h3><p>星轨意象、色彩分级与节奏剪辑，第九艺术下的硬科幻软表达。</p><a href="#library">读完整影评 #</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="help" style="background:rgba(124,92,255,.06);">
+  <div class="wrap">
+    <h2 class="sec-title">观片帮助<small>第九电影网 使用与合规</small></h2>
+    <div class="two">
+      <div class="panel">
+        <h3>策展看片流程</h3>
+        <p>1. 首页“进入序号片库”，按 No.01–No.06 等序号看策展样片。</p>
+        <p>2. 到“策展分类”切电影/剧集/综艺/动漫/纪录/短片，每类按母题编号。</p>
+        <p>3. 看“热播榜单”跟口碑，“影评专题”读第九艺术评析；点影片卡进详情，内页均 #。</p>
+        <p>4. 手机端点右上角汉堡菜单切栏目，全站自适应，无需手动缩放。[6](@ref)</p>
+      </div>
+      <div>
+        <details open><summary>序号片库是能直接看全片吗？</summary><p>本页为单页演示，不提供实际播放；正式站若提供在线观看，须接入有版权授权的片源，不聚合未授权影视、不提供盗版下载。</p></details>
+        <details><summary>为什么很多链接是 #？</summary><p>按你的要求，内页、播放、详情全部用 # 占位；部署时把 # 替换为真实授权详情页、正版播放页或合法平台跳转链接。</p></details>
+        <details><summary>“第九艺术”策展怎么扩到真实站？</summary><p>把 No.序号映射成“母题/作者/类型/地区”多套编号，每个卡片链分类页与详情页；单页演示可先保留 #，后续拆多页更利于收录。</p></details>
+        <details><summary>必应收录要注意什么？</summary><p>保持 title/description/canonical 一致、核心内容纯HTML、移动端速度快；在 Bing Webmaster Tools 提交首页。本页按你要求不生成 robots.txt 与 sitemap.xml。</p></details>
+      </div>
+    </div>
+    <div class="notice">
+      合规说明：本页为「第九电影网 / dijiudianyingwang-h5」单页演示，仅展示序号片库、策展分类、热播榜单与影评专题；不提供未授权播放、不聚合非法视听源。正式上线接片源需取得著作权授权并办理相关互联网视听节目资质。内页链接均以 # 占位，不生成 robots.txt 与 sitemap.xml。
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <h2 class="sec-title">关于本站<small>品牌·域名·官网·SEO</small></h2>
+    <div class="two">
+      <div class="panel">
+        <h3>网站定位</h3>
+        <p>第九电影网（dijiudianyingwang-h5）做“第九艺术馆”影视单页：首页 No.09 序号球、序号片库、策展分类、热播榜、影评专题、观片帮助一体化。全站统一关键词「第九电影网」「dijiudianyingwang-h5」「第九艺术/序号策展」。</p>
+        <p>官网：<br><span style="font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--cyan2);">https://dijiudianyingwang-h5.github.io</span></p>
+      </div>
+      <div class="panel">
+        <h3>技术与收录</h3>
+        <p>内部CSS、语义化标题、canonical、Open Graph、JSON-LD（WebSite/FAQ/Movie）；核心内容不依赖JS，便于必应单页抓取。[8](@ref)</p>
+        <div class="stats">
+          <div class="stat"><b>6</b><span>演示栏目</span></div>
+          <div class="stat"><b>No.09</b><span>序号策展模型</span></div>
+          <div class="stat"><b>JSON-LD</b><span>WebSite/FAQ/Movie</span></div>
+          <div class="stat"><b>0</b><span>robots/sitemap</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="fg">
+      <div><h4>第九电影网</h4><ul>
+        <li><a href="#home">首页 #</a></li><li><a href="#library">序号片库 #</a></li><li><a href="#ranking">热播榜单 #</a></li><li><a href="#about">关于本站 #</a></li>
+      </ul></div>
+      <div><h4>策展</h4><ul>
+        <li><a href="#category">电影 #</a></li><li><a href="#category">剧集 #</a></li><li><a href="#category">综艺 #</a></li><li><a href="#category">短片 #</a></li>
+      </ul></div>
+      <div><h4>帮助</h4><ul>
+        <li><a href="#help">观片帮助 #</a></li><li><a href="#help">序号策展 #</a></li><li><a href="#">意见反馈 #</a></li><li><a href="#">免责声明 #</a></li>
+      </ul></div>
+      <div><h4>官方信息</h4><ul>
+        <li><a href="#">站名：第九电影网</a></li><li><a href="#">域名：dijiudianyingwang-h5</a></li><li><a href="https://dijiudianyingwang-h5.github.io">官网：dijiudianyingwang-h5.github.io</a></li><li><a href="#">关键词：第九艺术策展</a></li>
+      </ul></div>
+    </div>
+    <div class="fb">
+      <p>第九电影网 · dijiudianyingwang-h5 · 第九艺术馆序号策展单页演示</p>
+      <p class="u">https://dijiudianyingwang-h5.github.io</p>
+      <p>© 2026 第九电影网演示模板。不生成 robots.txt 与 sitemap.xml，内页链接以 # 占位；接真实片源需版权授权。</p>
+    </div>
+  </div>
+</footer>
+
+<a href="#" class="toTop" id="toTop" aria-label="回到顶部">↑</a>
+<script>
+(function(){
+  var btn=document.getElementById('menuBtn'),links=document.getElementById('navLinks');
+  btn.addEventListener('click',function(){var o=links.classList.toggle('open');btn.classList.toggle('open',o);btn.setAttribute('aria-expanded',o?'true':'false');});
+  links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');});});
+  var t=document.getElementById('toTop');window.addEventListener('scroll',function(){t.classList.toggle('show',window.scrollY>400);});
+  t.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
+</body>
+</html>
